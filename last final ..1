@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jefix.design — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg1: #07050a;
+      --accent: #7c3aed;
+      --accent-2: #2dd4bf;
+      --glass: rgba(255,255,255,0.04);
+      --glass-border: rgba(255,255,255,0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      color: #fff;
+      background: linear-gradient(120deg, var(--bg1), #0b0710 60%);
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 22px; background: rgba(0,0,0,0.28); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--glass-border); z-index: 10;
+    }
+
+    .brand { font-weight: 800; letter-spacing: 0.06em; }
+    .links { display: flex; gap: 18px; font-size: 14px; }
+
+    header { padding-top: 84px; min-height: 90vh; display: grid; place-items: center; text-align: center; }
+    h1 { font-size: 48px; font-weight: 900; line-height: 1.1; }
+
+    .accent { color: var(--accent); text-shadow: 0 0 5px var(--accent), 0 0 15px var(--accent); animation: glow 2s infinite ease-in-out alternate; }
+    @keyframes glow { from { text-shadow: 0 0 5px var(--accent); } to { text-shadow: 0 0 20px var(--accent); } }
+
+    .portrait {
+      width: 220px; height: 220px; border-radius: 50%; border: 4px solid var(--accent);
+      object-fit: cover; margin: 24px auto; box-shadow: 0 0 30px rgba(124,58,237,0.3);
+    }
+
+    section { padding: 64px 20px; max-width: 1200px; margin: auto; }
+    h2 { font-size: 32px; margin-bottom: 20px; text-align: center; }
+
+    .glass {
+      background: var(--glass); border: 1px solid var(--glass-border);
+      padding: 20px; border-radius: 12px; margin: 20px auto; max-width: 600px;
+    }
+
+    footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--glass-border); }
+    footer a { margin: 0 10px; opacity: 0.85; }
+    footer a:hover { color: var(--accent); opacity: 1; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="brand">jefix.design</div>
+    <div class="links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#hire">Hire</a>
+    </div>
+  </nav>
+
+  <header>
+    <div>
+      <h1>Hey, it's me <span class="accent">Jeff</span></h1>
+      <img src="profile.png" alt="Jeff Portrait" class="portrait">
+      <p class="glass">I'M A <span class="accent">THUMBNAIL DESIGNER</span>. I CREATE <span class="accent">CTR-BOOSTING</span> & <span class="accent">EYE-CATCHING</span> THUMBNAILS TO GROW YOUR CHANNEL.</p>
+    </div>
+  </header>
+
+  <section id="work">
+    <h2>Selected Work</h2>
+    <div class="glass">Your work samples or images go here.</div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="glass">I’m Jeff, a detail-focused thumbnail designer. I use composition and color psychology to make thumbnails that stand out and get clicks.</div>
+  </section>
+
+  <section id="hire">
+    <h2>Hire Me</h2>
+    <form class="glass" onsubmit="sendWhatsApp(event)">
+      <input type="text" id="name" placeholder="Your Name" required style="width:100%;margin:6px 0;padding:10px;">
+      <input type="text" id="contact" placeholder="Phone / WhatsApp" style="width:100%;margin:6px 0;padding:10px;">
+      <textarea id="message" placeholder="Your message" style="width:100%;margin:6px 0;padding:10px;"></textarea>
+      <button type="submit" style="padding:12px 20px;background:var(--accent);border:none;border-radius:8px;color:#fff;cursor:pointer;">Send Inquiry</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 jefix.design</p>
+    <a href="https://instagram.com/jefix.designs">Instagram</a>
+    <a href="mailto:jefix.designs.creative@gmail.com">Email</a>
+  </footer>
+
+  <script>
+    function sendWhatsApp(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const contact = document.getElementById('contact').value;
+      const message = document.getElementById('message').value;
+      const text = encodeURIComponent(`Name: ${name}\nContact: ${contact}\nMessage: ${message}`);
+      window.open(`https://wa.me/923200436201?text=${text}`, '_blank');
+    }
+  </script>
+</body>
+</html>
